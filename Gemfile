@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'cowsay'
+# Twitter gems
+gem 'twitter'
+gem 'omniauth-twitter'
+# bootstrap gems
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record

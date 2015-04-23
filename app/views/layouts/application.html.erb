@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RubyGettingStarted</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>RubyGettingStarted</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <% if current_user %>
+        Signed in as <%= current_user.name %>!
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <%= link_to "Sing in with Twitter", "/auth/twitter" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

@@ -1,9 +1,18 @@
-<h1>Getting Started with Ruby</h1>
+<% if current_user %>
+  <%= form_tag( :method => 'get') do %>
+    <p>
+      <%= text_field_tag :username, params[:username] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
 
-<p>
-  Welcome!
-</p>
-
-<% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 2) do %>
-  <p>Hello World #<%= i %>!</p>
+  <ul>
+    <% @mentions.each do |mention| %>
+      <li><% mention.text %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    Sign in to be able to use the app.
+  </p>
 <% end %>
