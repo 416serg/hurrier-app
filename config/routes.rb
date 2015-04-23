@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  post 'search', to: 'welcome#index', via: :get
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

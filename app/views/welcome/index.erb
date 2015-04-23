@@ -1,11 +1,29 @@
 <% if current_user %>
-  <%= form_tag( :method => 'get') do %>
+  <%= form_tag(root_path, :method => "get") do %>
     <p>
       <%= text_field_tag :username, params[:username] %>
       <%= submit_tag "Search", :name => nil %>
     </p>
   <% end %>
 
+  <ul>
+    <% @mentions.each do |mention| %>
+    <%#= debug mention.media %>
+      <li>
+        <%= mention.text %>
+        <div class="row">
+        <% mention.media.each do |media| %>
+          <%#= debug media %>
+
+          <div class="col-xs-3">
+            <img src="<%= media.media_url %>" class="img-responsive" alt="" />
+          </div>
+
+        <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
   <p>
     Sign in to be able to use the app.
