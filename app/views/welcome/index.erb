@@ -16,9 +16,9 @@
           <%#= debug media %>
 
           <div class="col-xs-3">
-            <img src="<%= media.media_url %>" class="img-responsive" alt="" />
-          </div>
+            <%=image_tag(media.media_url, class:"img-responsive")%>
 
+          </div>
         <% end %>
         </div>
       </li>

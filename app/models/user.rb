@@ -20,4 +20,22 @@ class User < ActiveRecord::Base
       @twitter ||= Twitter::Client.new(oauth_token: oauth_token, oauth_token_secret: oauth_secret)
     end
   end
+
+  has_many :fav_pics
+  has_many :pics_favorited,
+    class_name: 'Pic',
+    through: :fav_pics
+
+end
+
+class FavPic < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :pic
+end
+
+class Pic < ActiveRecord::Base
+  has_many :fav_pics
+  has_many :fav_users,
+    class_name: 'User',
+    through: :fav_pics
 end
