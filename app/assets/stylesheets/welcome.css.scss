@@ -6,3 +6,10 @@
   margin: 20px 0;
   text-align: right;
 }
+
+.fav-img {
+  &:hover {
+    text-decoration: none;
+    background-color: #fff;
+  }
+}

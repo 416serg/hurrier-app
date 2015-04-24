@@ -11,6 +11,8 @@
     <header class="header">
       <% if current_user %>
         Signed in as <%= current_user.name %>!
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'Favourites', fav_pics_path %>
         <%= link_to "Sign out", signout_path %>
       <% else %>
         <%= link_to "Sing in with Twitter", "/auth/twitter" %>
