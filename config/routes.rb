@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   post 'search', to: 'welcome#index', via: :get
 
+  get '/fav-pics', to: 'fav_pics#index'
+
+  #user redirects
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
