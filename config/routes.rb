@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/fav-pics', to: 'fav_pics#index'
 
   #favorite a pic
-  post 'favorite', to: 'welcome#index', via: :get
+  put 'favorite', to: 'pic#favorite', as: 'add_favorite'
 
   #user redirects
   get 'auth/:provider/callback', to: 'sessions#create'

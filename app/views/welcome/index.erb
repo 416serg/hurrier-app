@@ -15,8 +15,9 @@
 
           <div class="col-xs-3">
             <%=image_tag(media.media_url, class:"img-responsive")%>
-            <a href="#" class="fav-img"><i class="fa fa-star fa-2x"></i></a>
-            <%= link_to "Favourite", root_path({:controller => "pic", :action => "favorite", :url => media.media_url }) %>
+            <%= link_to add_favorite_path(url: media.media_url), class: 'fav-img', method: :put do %>
+              <i class="fa fa-star fa-2x"></i>
+            <% end %>
           </div>
 
         <% end %>

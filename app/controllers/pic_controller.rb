@@ -1,16 +1,9 @@
 class PicController < ApplicationController
     def favorite
-        pic = Pic.find(params[:url])
-
-        favorite = FavPic.new
-        favorite.pic = pic
-        favorite.user = current_user # however you get at this...
-        favorite.save
-
-        pic.fav_users.add(favorite)
-        pic.save
-
-        current_user.fav_pics.add(favorite)
-        current_user.save
+        if current_user.present?
+          pic = Pic.find(params[:url])
+          FavPic.create pic: pic, user: current_user
+          # user and pic automaically have this `FavPic` assigned
+        end
     end
 end
